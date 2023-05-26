@@ -22,8 +22,7 @@ public class Hashtag {
     public Hashtag() {
     }
 
-    public Hashtag(Integer id, String tag, Post post) {
-        this.id = id;
+    public Hashtag(String tag, Post post) {
         this.tag = tag;
         this.post = post;
     }

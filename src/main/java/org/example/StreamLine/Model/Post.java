@@ -33,7 +33,7 @@ public class Post {
 
 	private String filePath;
 
-	Post() {
+	public Post() {
 
 	}
 
