@@ -1,9 +1,11 @@
-version: '2'
+version: '3'
 
 services:
 
   kafka-cluster:
     image: landoop/fast-data-dev:latest
+    volumes:
+      - E:\StreamLine\docker:/stream
     environment:
       ADV_HOST: 127.0.0.1
       RUNTESTS: 0
