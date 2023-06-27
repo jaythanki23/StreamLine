@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import org.example.StreamLine.Model.Post;
 
 @Entity
-@Table(name = "hastag_table")
+@Table(name = "hashtag_table")
 public class Hashtag {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

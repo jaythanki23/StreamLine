@@ -7,6 +7,8 @@ services:
     container_name: postgres
     ports:
       - 5433:5432
+    volumes:
+      - pg_data:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
@@ -15,6 +17,7 @@ services:
   # Zookeeper, single node
   zookeeper:
     image: wurstmeister/zookeeper:latest
+    container_name: zookeeper
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
@@ -22,15 +25,22 @@ services:
       - 2181:2181
       - 2888:2888
       - 3888:3888
+    volumes:
+      - zookeeper_data:/opt/zookeeper-latest/data
+      - zookeeper_logs:/opt/zookeeper-latest/logs
+      - zookeeper_conf:/opt/zookeeper-latest/conf
 
   # kafka multi node
   kafka1:
     image: wurstmeister/kafka:latest
+    container_name: kafka1
     restart: "no"
     links:
       - zookeeper
     ports:
       - 9092:9092
+    volumes:
+      - kafka1_data:/kafka
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
@@ -42,11 +52,14 @@ services:
 
   kafka2:
     image: wurstmeister/kafka:latest
+    container_name: kafka2
     restart: "no"
     links:
       - zookeeper
     ports:
       - 9093:9093
+    volumes:
+      - kafka2_data:/kafka
     environment:
       KAFKA_BROKER_ID: 2
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
@@ -59,6 +72,7 @@ services:
   #kafdrop for topic/msg visualization
   kafdrop3:
     image: obsidiandynamics/kafdrop
+    container_name: kafdrop
     restart: "no"
     environment:
       KAFKA_BROKERCONNECT: "kafka1:29092,kafka2:29093"
@@ -71,10 +85,11 @@ services:
 
 
   # debezium connector
-  kconnect:
+  source_connect:
     image: debezium/connect:1.9
+    container_name: source_connect
     ports:
-      - 8083:8083
+      - "8083:8083"
     environment:
       CONFIG_STORAGE_TOPIC: my_connect_configs
       OFFSET_STORAGE_TOPIC: my_connect_offsets
@@ -88,6 +103,44 @@ services:
       - kafka2
       - zookeeper
       - postgres
+
+  # elasticsearch connector
+  sink_connect:
+    container_name: sink_connect
+    image: confluentinc/cp-kafka-connect:3.3.1
+    ports:
+      - "8084:8084"
+    depends_on:
+      - kafka1
+      - kafka2
+      - zookeeper
+    volumes:
+      - E:\StreamLine\docker\connect-plugins:/connect-plugins
+    environment:
+      CONNECT_BOOTSTRAP_SERVERS: kafka1:29092,kafka2:29093
+      CONNECT_REST_PORT: 8084
+      CONNECT_GROUP_ID: "connect"
+      CONNECT_CONFIG_STORAGE_TOPIC: connect-config
+      CONNECT_OFFSET_STORAGE_TOPIC: connect-offsets
+      CONNECT_STATUS_STORAGE_TOPIC: connect-status
+      CONNECT_REPLICATION_FACTOR: 1
+      CONNECT_CONFIG_STORAGE_REPLICATION_FACTOR: 1
+      CONNECT_OFFSET_STORAGE_REPLICATION_FACTOR: 1
+      CONNECT_STATUS_STORAGE_REPLICATION_FACTOR: 1
+      CONNECT_KEY_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
+      CONNECT_KEY_CONVERTER_SCHEMAS_ENABLE: "false"
+      CONNECT_VALUE_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
+      CONNECT_VALUE_CONVERTER_SCHEMAS_ENABLE: "false"
+      CONNECT_INTERNAL_KEY_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
+      CONNECT_INTERNAL_VALUE_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
+      CONNECT_PRODUCER_INTERCEPTOR_CLASSES: "io.confluent.monitoring.clients.interceptor.MonitoringProducerInterceptor"
+      CONNECT_CONSUMER_INTERCEPTOR_CLASSES: "io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor"
+      CONNECT_REST_ADVERTISED_HOST_NAME: "connect"
+      CONNECT_ZOOKEEPER_CONNECT: zookeeper:2181
+      CONNECT_PLUGIN_PATH: /connect-plugins
+      CONNECT_LOG4J_ROOT_LOGLEVEL: INFO
+      CONNECT_LOG4J_LOGGERS: org.reflections=ERROR
+      CLASSPATH: /usr/share/java/monitoring-interceptors/monitoring-interceptors-3.3.0.jar
 
 
   elasticsearch:
@@ -111,7 +164,7 @@ services:
     ports:
       - 9200:9200
       - 9300:9300
-  
+
 
   kibana:
     container_name: kibana
@@ -125,6 +178,21 @@ services:
       - elasticsearch
 
 volumes:
-    elasticsearch-data-volume:
-      driver: local
-  
+  pg_data:
+    driver: local
+  kafka1_data:
+    driver: local
+  kafka1_config:
+    driver: local
+  kafka2_data:
+    driver: local
+  kafka2_config:
+    driver: local
+  zookeeper_data:
+    driver: local
+  zookeeper_logs:
+    driver: local
+  zookeeper_conf:
+    driver: local
+  elasticsearch-data-volume:
+    driver: local
