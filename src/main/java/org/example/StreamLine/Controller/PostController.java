@@ -33,9 +33,14 @@ public class PostController {
 		this.hashtagService = hashtagService;
 	}
 	
-	@GetMapping("{id}")
-	public ResponseEntity<List<Post>> getAllPost(@PathVariable("id") Integer userId) {
+	@GetMapping("/user/{id}")
+	public ResponseEntity<List<Post>> getAllPostsByUser(@PathVariable("id") Integer userId) {
 		return new ResponseEntity<List<Post>>(postService.getPostByUser(userId), HttpStatus.OK);
+	}
+
+	@GetMapping("/{id}")
+	public ResponseEntity<Post> getPost(@PathVariable("id") Integer id) {
+		return new ResponseEntity<Post>(postService.getPost(id), HttpStatus.OK);
 	}
 
 	@GetMapping

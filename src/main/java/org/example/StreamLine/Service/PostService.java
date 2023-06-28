@@ -31,6 +31,11 @@ public class PostService implements PostServiceInterface {
 	}
 
 	@Override
+	public Post getPost(Integer id) {
+		return postRepository.findById(id).orElse(null);
+	}
+
+	@Override
 	public Post createPost(Post post) {
 		return postRepository.save(post);
 	}
