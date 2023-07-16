@@ -1,6 +1,7 @@
 package org.example.StreamLine.Service;
 
 import org.example.StreamLine.Model.Hashtag;
+import org.example.StreamLine.Model.Post;
 
 import java.util.List;
 
@@ -13,4 +14,6 @@ public interface HashtagServiceInterface {
 
     // save tag
     Hashtag saveTag(Hashtag tag);
+
+    void parseHashtag(String tagString, Post post);
 }

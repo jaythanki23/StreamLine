@@ -21,5 +21,11 @@ public class DataInjectorController {
         return new ResponseEntity<String>("100 users generated", HttpStatus.OK);
     }
 
+    @GetMapping("/inject-posts")
+    public ResponseEntity<String> generatePosts() {
+        dataInjector.generatePosts();
+        return new ResponseEntity<String>("100 posts generated", HttpStatus.OK);
+    }
+
 
 }

@@ -1,23 +1,39 @@
 package org.example.StreamLine.Utils;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+
 import com.github.javafaker.Faker;
+import org.example.StreamLine.Model.Post;
+import org.example.StreamLine.Service.HashtagServiceInterface;
+import org.example.StreamLine.Service.PostServiceInterface;
+import org.example.StreamLine.Service.UserServiceInterface;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Random;
+
+import org.example.StreamLine.Model.User;
 
 @Component
 public class DataInjector {
+    private PostServiceInterface postService;
+    private UserServiceInterface userService;
+    private HashtagServiceInterface hashtagService;
+
     private String[] popularTags = {"love", "sunshine", "fitness", "Ronaldo", "Messi", "Football", "NFL", "NBA", "F1", "Brady", "Rodgers", "Mahomes", "Lebron", "Curry", "Kobe", "Goggins", "Motivation", "Inspiration", "movies", "sunset", "concert", "london", "Wembley", "USA", "UK", "Mom", "Dog", "HNY"};
 
-    public DataInjector() {
+    private final String jdbcUrl = "jdbc:postgresql://localhost:5433/stream_line?allowPublicKeyRetrieval=true&useSSL=false";
+    private final String username = "postgres";
+    private final String password = "postgres";
+
+    public DataInjector(UserServiceInterface userService, PostServiceInterface postService, HashtagServiceInterface hashtagService) {
+        this.postService = postService;
+        this.userService = userService;
+        this.hashtagService = hashtagService;
     }
 
     public String generateRandomWord() {
-        Random rand = new Random(); // Intialize a Random Number Generator with SysTime as the seed
+        Random rand = new Random();
 
         return popularTags[rand.nextInt(popularTags.length)];
     }
@@ -33,10 +49,15 @@ public class DataInjector {
         return  sb.toString();
     }
 
+    public User selectRandomUser() {
+        List<User> users = userService.getAllUsers();
+        Random rand = new Random();
+
+        User user = users.get(rand.nextInt(users.size()));
+        return user;
+    }
+
     public void generateUsers() {
-        String jdbcUrl = "jdbc:postgresql://localhost:5433/stream_line?allowPublicKeyRetrieval=true&useSSL=false";
-        String username = "postgres";
-        String password = "postgres";
 
         try (Connection conn = DriverManager.getConnection(jdbcUrl, username, password)) {
             Faker faker = new Faker();
@@ -66,6 +87,24 @@ public class DataInjector {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void generatePosts() {
+        Faker faker = new Faker();
+
+        for(int i = 0; i < 100; i++) {
+            User user = selectRandomUser();
+            String content = faker.lorem().sentence();
+            String hashtagString = generateRandomTagString();
+            content += hashtagString;
+
+            Post post = new Post(user, content);
+
+            postService.createPost(post);
+
+            hashtagService.parseHashtag(hashtagString, post);
+
         }
 
     }

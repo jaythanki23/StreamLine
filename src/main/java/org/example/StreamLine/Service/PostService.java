@@ -31,6 +31,11 @@ public class PostService implements PostServiceInterface {
 	}
 
 	@Override
+	public List<Post> getAllPosts() {
+		return postRepository.findAll();
+	}
+
+	@Override
 	public Post getPost(Integer id) {
 		return postRepository.findById(id).orElse(null);
 	}

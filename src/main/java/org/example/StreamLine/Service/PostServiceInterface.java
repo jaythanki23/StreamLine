@@ -10,6 +10,8 @@ public interface PostServiceInterface {
 
 	List<Post> getPostWithPagination(Integer pageNumber, Integer pageSize);
 
+	List<Post> getAllPosts();
+
 	Post getPost(Integer id);
 
 	Post createPost(Post post);

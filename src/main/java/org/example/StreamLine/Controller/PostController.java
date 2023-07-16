@@ -43,6 +43,11 @@ public class PostController {
 		return new ResponseEntity<Post>(postService.getPost(id), HttpStatus.OK);
 	}
 
+	@GetMapping("/all")
+	public ResponseEntity<List<Post>> getAllPosts() {
+		return new ResponseEntity<List<Post>>(postService.getAllPosts(), HttpStatus.OK);
+	}
+
 	@GetMapping
 	public ResponseEntity<List<Post>> getPostWithPagination(@RequestParam( value = "page",defaultValue = "0", required = false) Integer pageNumber,
 															@RequestParam( value = "size", defaultValue = "1", required = false) Integer pageSize) {
@@ -72,37 +77,39 @@ public class PostController {
 
 		postService.createPost(post);
 
-		boolean flag = false;
-		String res = "";
-		for(char ch: post.getDescription().toCharArray()) {
-			if(ch == '#') {
-				if(flag) {
-					Hashtag tag = new Hashtag(res, post);
-					hashtagService.saveTag(tag);
-				} else {
-					flag = true;
-				}
-				res = "";
-				continue;
-			}
+		hashtagService.parseHashtag(post.getDescription(), post);
 
-			if(flag) {
-				if (!Character.isLetterOrDigit(ch)) {
-					Hashtag tag = new Hashtag(res, post);
-					hashtagService.saveTag(tag);
-					flag = false;
-					res = "";
-					continue;
-				} else {
-					res += ch;
-				}
-			}
-		}
-
-		if(!res.equals("")) {
-			Hashtag tag = new Hashtag(res, post);
-			hashtagService.saveTag(tag);
-		}
+//		boolean flag = false;
+//		String res = "";
+//		for(char ch: post.getDescription().toCharArray()) {
+//			if(ch == '#') {
+//				if(flag) {
+//					Hashtag tag = new Hashtag(res, post);
+//					hashtagService.saveTag(tag);
+//				} else {
+//					flag = true;
+//				}
+//				res = "";
+//				continue;
+//			}
+//
+//			if(flag) {
+//				if (!Character.isLetterOrDigit(ch)) {
+//					Hashtag tag = new Hashtag(res, post);
+//					hashtagService.saveTag(tag);
+//					flag = false;
+//					res = "";
+//					continue;
+//				} else {
+//					res += ch;
+//				}
+//			}
+//		}
+//
+//		if(!res.equals("")) {
+//			Hashtag tag = new Hashtag(res, post);
+//			hashtagService.saveTag(tag);
+//		}
 
 		return new ResponseEntity<Post>(post, HttpStatus.OK);
 	}
