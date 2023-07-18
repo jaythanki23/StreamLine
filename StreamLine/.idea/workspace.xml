@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08c1d6e9-de76-43fc-a67e-b80cd8ac4665" name="Changes" comment="">
+    <list default="true" id="2ae7dd49-8fde-432f-a40e-25826899b3e5" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/connect-plugins/HdrHistogram-2.1.9.jar" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/docker/connect-plugins/HdrHistogram-2.1.9.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/connect-plugins/aggs-matrix-stats-client-7.17.3.jar" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/docker/connect-plugins/aggs-matrix-stats-client-7.17.3.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/connect-plugins/common-utils-6.2.3.jar" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/docker/connect-plugins/common-utils-6.2.3.jar" afterDir="false" />
@@ -114,6 +114,20 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
+    <option name="isSearchInLibrariesForStructure" value="false" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -124,8 +138,14 @@
         <option name="useMavenConfig" value="true" />
       </MavenGeneralSettings>
     </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
   </component>
-  <component name="ProjectId" id="2SkFchn0pzbCyFfcjw1zVWUJGrm" />
+  <component name="ProjectId" id="2PYj0CD8cNaxhEYxu7uw5RvmKuc" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -134,11 +154,23 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "E:/StreamLine/service-registry"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "E:/StreamLine/StreamLine",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
-  <component name="RunManager" selected="Maven.service registry">
-    <configuration name="StreamLine" type="MavenRunConfiguration" factoryName="Maven">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\StreamLine\docker\connect-plugins" />
+      <recent name="E:\StreamLine\src\main\java\org\example\StreamLine" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\StreamLine\StreamLine" />
+      <recent name="E:\StreamLine\docker\source" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Maven.StreamLine ">
+    <configuration name="StreamLine " type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
         <option name="myRunnerSettings" />
@@ -163,32 +195,7 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
-    <configuration name="service registry" type="MavenRunConfiguration" factoryName="Maven">
-      <MavenSettings>
-        <option name="myGeneralSettings" />
-        <option name="myRunnerSettings" />
-        <option name="myRunnerParameters">
-          <MavenRunnerParameters>
-            <option name="profiles">
-              <set />
-            </option>
-            <option name="goals">
-              <list>
-                <option value="spring-boot:run" />
-              </list>
-            </option>
-            <option name="pomFileName" />
-            <option name="profilesMap">
-              <map />
-            </option>
-            <option name="resolveToWorkspace" value="false" />
-            <option name="workingDirPath" value="$PROJECT_DIR$/service-registry" />
-          </MavenRunnerParameters>
-        </option>
-      </MavenSettings>
-      <method v="2" />
-    </configuration>
-    <configuration name="trending" type="MavenRunConfiguration" factoryName="Maven">
+    <configuration name="Trending" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
         <option name="myRunnerSettings" />
@@ -214,20 +221,23 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Maven.StreamLine" />
-      <item itemvalue="Maven.trending" />
-      <item itemvalue="Maven.service registry" />
+      <item itemvalue="Maven.StreamLine " />
+      <item itemvalue="Maven.Trending" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="08c1d6e9-de76-43fc-a67e-b80cd8ac4665" name="Changes" comment="" />
-      <created>1689682757014</created>
+      <changelist id="2ae7dd49-8fde-432f-a40e-25826899b3e5" name="Changes" comment="" />
+      <created>1683640686213</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1689682757014</updated>
+      <updated>1683640686213</updated>
     </task>
     <servers />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
