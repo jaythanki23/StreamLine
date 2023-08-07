@@ -27,7 +27,7 @@ public class Comment {
 
     public Comment() {};
 
-    public Comment(Integer id, User user, Post post, String description, Date creationDate) {
+    public Comment(Integer id, User user, Post post, String description) {
         this.id = id;
         this.user = user;
         this.post = post;

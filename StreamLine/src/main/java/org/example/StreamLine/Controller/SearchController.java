@@ -55,8 +55,6 @@ public class SearchController {
                 .bodyToMono(HashMap.class).
                 block();
 
-        System.out.println(map);
-
         HashMap<String, Object> hits = (HashMap<String, Object>) map.get("hits");
         List<HashMap<String, Object>> list = (List<HashMap<String, Object>>) hits.get("hits");
 

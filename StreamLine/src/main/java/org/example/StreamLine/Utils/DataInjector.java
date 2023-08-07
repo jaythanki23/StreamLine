@@ -94,9 +94,16 @@ public class DataInjector {
         Faker faker = new Faker();
 
         for(int i = 0; i < 100; i++) {
+            // pick random user
             User user = selectRandomUser();
+
+            // generate random string
             String content = faker.lorem().sentence();
+
+            // generate random hastag string
             String hashtagString = generateRandomTagString();
+
+            // concatenate them
             content += hashtagString;
 
             Post post = new Post(user, content);
