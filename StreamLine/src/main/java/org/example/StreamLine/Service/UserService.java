@@ -1,5 +1,6 @@
 package org.example.StreamLine.Service;
 
+import org.example.StreamLine.Exceptions.UserNotFoundException;
 import org.example.StreamLine.Model.User;
 import org.example.StreamLine.Repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -21,40 +22,58 @@ public class UserService implements UserServiceInterface {
 		return userRepository.findAll();
 	}
 	
-	public User getUserById(Integer id) {
-		return userRepository.findById(id).orElse(null);
+	public User getUserById(Integer id) throws UserNotFoundException {
+		User user = userRepository.findById(id).orElse(null);
+
+		if(user != null) {
+			return user;
+		} else {
+			throw new UserNotFoundException("User with id " + id + " doesn't exist");
+		}
 	}
 	
 	public User createUser(User user) {
 		return userRepository.save(user);
 	}
 	
-	public User updateUser(Integer id, User user) {
-		User dbUser = userRepository.findById(id).get();
-		
-		if(Objects.nonNull(user.getUserName()) && !"".equalsIgnoreCase(user.getUserName())) {
-			dbUser.setUserName(user.getUserName());
+	public User updateUser(Integer id, User user) throws UserNotFoundException {
+		User dbUser = userRepository.findById(id).orElse(null);
+
+		if(dbUser != null) {
+			if(Objects.nonNull(user.getUserName()) && !"".equalsIgnoreCase(user.getUserName())) {
+				dbUser.setUserName(user.getUserName());
+			}
+
+			if(Objects.nonNull(user.getFirstName()) && !"".equalsIgnoreCase(user.getFirstName())) {
+				dbUser.setFirstName(user.getFirstName());
+			}
+
+			if(Objects.nonNull(user.getLastName()) && !"".equalsIgnoreCase(user.getLastName())) {
+				dbUser.setLastName(user.getLastName());
+			}
+
+			if(Objects.nonNull(user.getEmail()) && !"".equalsIgnoreCase(user.getEmail())) {
+				dbUser.setEmail(user.getEmail());
+			}
+
+			return userRepository.save(dbUser);
+		} else {
+			throw new UserNotFoundException("User with id " + id + " doesn't exist");
 		}
 		
-		if(Objects.nonNull(user.getFirstName()) && !"".equalsIgnoreCase(user.getFirstName())) {
-			dbUser.setFirstName(user.getFirstName());
-		}
-		
-		if(Objects.nonNull(user.getLastName()) && !"".equalsIgnoreCase(user.getLastName())) {
-			dbUser.setLastName(user.getLastName());
-		}
-		
-		if(Objects.nonNull(user.getEmail()) && !"".equalsIgnoreCase(user.getEmail())) {
-			dbUser.setEmail(user.getEmail());
-		}
-		
-		return userRepository.save(dbUser);
+
 
 	}
 	
-	public String deleteUserById(Integer id) {
-		userRepository.deleteById(id);
-		return "The user has been removed";
+	public String deleteUserById(Integer id) throws UserNotFoundException {
+		User user = userRepository.findById(id).orElse(null);
+		if(user != null) {
+			userRepository.deleteById(id);
+			return "The user has been removed";
+		} else {
+			throw new UserNotFoundException("User with id " + id + " doesn't exist");
+		}
+
 	}
 
 }

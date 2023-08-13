@@ -1,6 +1,9 @@
 package org.example.StreamLine.Model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import lombok.Builder;
 
 @Entity
 @Table(name = "user_table")
@@ -9,21 +12,33 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
+	@NotNull(message = "Username cannot be empty")
 	private String userName;
-	
+
+	@NotNull(message = "Firstname cannot be empty")
 	private String firstName;
-	
+
+	@NotNull(message = "Lastname cannot be empty")
 	private String lastName;
-	
+
+	@NotNull(message = "Email cannot be empty")
+	@Email(message = "Email is invalid")
 	private String email;
 	
-	User() {
+	public User() {
 		
 	}
 	
-	User(Integer id, String userName, String firstName, String lastName, String email) {
+	public User(Integer id, String userName, String firstName, String lastName, String email) {
 		this.setId(id);
+		this.setUserName(userName);
+		this.setFirstName(firstName);
+		this.setLastName(lastName);
+		this.setEmail(email);
+	}
+
+	public User(String userName, String firstName, String lastName, String email) {
 		this.setUserName(userName);
 		this.setFirstName(firstName);
 		this.setLastName(lastName);

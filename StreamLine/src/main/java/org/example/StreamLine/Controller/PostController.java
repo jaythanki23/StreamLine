@@ -1,5 +1,6 @@
 package org.example.StreamLine.Controller;
 
+import org.example.StreamLine.Exceptions.UserNotFoundException;
 import org.example.StreamLine.Model.Hashtag;
 import org.example.StreamLine.Model.Post;
 import org.example.StreamLine.Model.User;
@@ -56,7 +57,7 @@ public class PostController {
 	}
 	
 	@PostMapping() 
-	public ResponseEntity<Post> createPost(@RequestParam(value = "file") MultipartFile file, @RequestParam(value = "description") String description, @RequestParam(value = "userId") Integer userId) throws IOException {
+	public ResponseEntity<Post> createPost(@RequestParam(value = "file") MultipartFile file, @RequestParam(value = "description") String description, @RequestParam(value = "userId") Integer userId) throws IOException, UserNotFoundException {
 
 		User user = userService.getUserById(userId);
 		Post post = new Post();
