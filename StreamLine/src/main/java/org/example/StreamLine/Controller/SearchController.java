@@ -1,6 +1,7 @@
 package org.example.StreamLine.Controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import org.example.StreamLine.Exceptions.PostNotFoundException;
 import org.example.StreamLine.Model.Post;
 import org.example.StreamLine.Service.PostServiceInterface;
 import org.springframework.http.HttpStatus;
@@ -33,7 +34,7 @@ public class SearchController {
     }
 
     @GetMapping("{tag}")
-    public ResponseEntity<List<Post>> getPostsByTag(@PathVariable("tag") String tag) throws JsonProcessingException {
+    public ResponseEntity<List<Post>> getPostsByTag(@PathVariable("tag") String tag) throws JsonProcessingException, PostNotFoundException {
         List<Integer> ids = new ArrayList<>();
         List<Post> posts = new ArrayList<>();
 

@@ -6,12 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="08c1d6e9-de76-43fc-a67e-b80cd8ac4665" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StreamLine/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Advice/ApplicationExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Advice/ApplicationExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Controller/PostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Service/UserServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Service/UserServiceInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Controller/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Controller/SearchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Model/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Model/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Service/PostService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Service/PostServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Service/PostServiceInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

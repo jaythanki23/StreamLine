@@ -1,7 +1,8 @@
 package org.example.StreamLine.Controller;
 
+import org.example.StreamLine.Exceptions.FileOrDescriptionNotFoundException;
+import org.example.StreamLine.Exceptions.PostNotFoundException;
 import org.example.StreamLine.Exceptions.UserNotFoundException;
-import org.example.StreamLine.Model.Hashtag;
 import org.example.StreamLine.Model.Post;
 import org.example.StreamLine.Model.User;
 import org.example.StreamLine.Service.HashtagServiceInterface;
@@ -35,12 +36,12 @@ public class PostController {
 	}
 	
 	@GetMapping("/user/{id}")
-	public ResponseEntity<List<Post>> getAllPostsByUser(@PathVariable("id") Integer userId) {
+	public ResponseEntity<List<Post>> getAllPostsByUser(@PathVariable("id") Integer userId) throws UserNotFoundException {
 		return new ResponseEntity<List<Post>>(postService.getPostByUser(userId), HttpStatus.OK);
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Post> getPost(@PathVariable("id") Integer id) {
+	public ResponseEntity<Post> getPost(@PathVariable("id") Integer id) throws PostNotFoundException {
 		return new ResponseEntity<Post>(postService.getPost(id), HttpStatus.OK);
 	}
 
@@ -57,7 +58,11 @@ public class PostController {
 	}
 	
 	@PostMapping() 
-	public ResponseEntity<Post> createPost(@RequestParam(value = "file") MultipartFile file, @RequestParam(value = "description") String description, @RequestParam(value = "userId") Integer userId) throws IOException, UserNotFoundException {
+	public ResponseEntity<Post> createPost(@RequestParam(value = "file") MultipartFile file, @RequestParam(value = "description") String description, @RequestParam(value = "userId") Integer userId) throws IOException, UserNotFoundException, FileOrDescriptionNotFoundException {
+
+		if((description.equals("") || description.equals(null)) && file.isEmpty()) {
+			throw new FileOrDescriptionNotFoundException("Please include either a file or a description");
+		}
 
 		User user = userService.getUserById(userId);
 		Post post = new Post();
@@ -65,7 +70,6 @@ public class PostController {
 		if(!file.isEmpty()) {
 			String filePath = FOLDER_PATH+file.getOriginalFilename();
 			file.transferTo(new File(filePath));
-//			Post post = new Post(user, description, file.getOriginalFilename(), file.getContentType(), filePath);
 			post.setUser(user);
 			post.setDescription(description);
 			post.setFileName(file.getOriginalFilename());
@@ -80,44 +84,12 @@ public class PostController {
 
 		hashtagService.parseHashtag(post.getDescription(), post);
 
-//		boolean flag = false;
-//		String res = "";
-//		for(char ch: post.getDescription().toCharArray()) {
-//			if(ch == '#') {
-//				if(flag) {
-//					Hashtag tag = new Hashtag(res, post);
-//					hashtagService.saveTag(tag);
-//				} else {
-//					flag = true;
-//				}
-//				res = "";
-//				continue;
-//			}
-//
-//			if(flag) {
-//				if (!Character.isLetterOrDigit(ch)) {
-//					Hashtag tag = new Hashtag(res, post);
-//					hashtagService.saveTag(tag);
-//					flag = false;
-//					res = "";
-//					continue;
-//				} else {
-//					res += ch;
-//				}
-//			}
-//		}
-//
-//		if(!res.equals("")) {
-//			Hashtag tag = new Hashtag(res, post);
-//			hashtagService.saveTag(tag);
-//		}
-
 		return new ResponseEntity<Post>(post, HttpStatus.OK);
 	}
 
 	
 	@DeleteMapping("{id}")
-	public ResponseEntity<String> deletePostById(@PathVariable("id") Integer postId) {
+	public ResponseEntity<String> deletePostById(@PathVariable("id") Integer postId) throws PostNotFoundException {
 		return new ResponseEntity<String>(postService.deletePostById(postId), HttpStatus.OK);
 	}
 }
