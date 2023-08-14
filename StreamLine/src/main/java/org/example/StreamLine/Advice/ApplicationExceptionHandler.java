@@ -1,8 +1,6 @@
 package org.example.StreamLine.Advice;
 
-import org.example.StreamLine.Exceptions.FileOrDescriptionNotFoundException;
-import org.example.StreamLine.Exceptions.PostNotFoundException;
-import org.example.StreamLine.Exceptions.UserNotFoundException;
+import org.example.StreamLine.Exceptions.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -23,6 +21,7 @@ public class ApplicationExceptionHandler {
         this.exceptionHandlerObject = exceptionHandlerObject;
     }
 
+    // For request body
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> handleMethodArgumentNotValidException(MethodArgumentNotValidException exception) {
@@ -52,6 +51,7 @@ public class ApplicationExceptionHandler {
         return exceptionHandlerObject.setKeyValuePair("Error", exception.getMessage());
     }
 
+    // For request parameters
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MissingServletRequestParameterException.class)
     public Map<String, String> handleMissingServletRequestParameterException(MissingServletRequestParameterException exception) {
@@ -59,6 +59,19 @@ public class ApplicationExceptionHandler {
         return exceptionHandlerObject.setKeyValuePair("Error", exception.getParameterName() + " is missing");
     }
 
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(CommentNotFoundException.class)
+    public Map<String, String> handleCommentNotFoundException(CommentNotFoundException exception) {
+        exceptionHandlerObject = new ExceptionHandlerObject();
+        return exceptionHandlerObject.setKeyValuePair("Error", exception.getMessage());
+    }
+
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(UserAlreadyExistsException.class)
+    public Map<String, String> handleCommentNotFoundException(UserAlreadyExistsException exception) {
+        exceptionHandlerObject = new ExceptionHandlerObject();
+        return exceptionHandlerObject.setKeyValuePair("Error", exception.getMessage());
+    }
 
 
 }

@@ -1,5 +1,6 @@
 package org.example.StreamLine.Service;
 
+import org.example.StreamLine.Exceptions.UserAlreadyExistsException;
 import org.example.StreamLine.Exceptions.UserNotFoundException;
 import org.example.StreamLine.Model.User;
 
@@ -13,7 +14,7 @@ public interface UserServiceInterface {
 	User getUserById(Integer id) throws UserNotFoundException;
 	
 	// create user
-	User createUser(User user);
+	User createUser(User user) throws UserAlreadyExistsException;
 
 	// update user
 	User updateUser(Integer id, User user) throws UserNotFoundException;

@@ -1,6 +1,7 @@
 package org.example.StreamLine.Model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
@@ -13,12 +14,15 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @NotNull(message = "User cannot be null")
     @ManyToOne
     private User user;
 
+    @NotNull(message = "Post cannot be null")
     @ManyToOne
     private Post post;
 
+    @NotNull(message = "Description cannot be empty")
     private String description;
 
     @CreationTimestamp

@@ -1,6 +1,7 @@
 package org.example.StreamLine.Controller;
 
 import jakarta.validation.Valid;
+import org.example.StreamLine.Exceptions.UserAlreadyExistsException;
 import org.example.StreamLine.Exceptions.UserNotFoundException;
 import org.example.StreamLine.Model.User;
 import org.example.StreamLine.Service.UserServiceInterface;
@@ -32,7 +33,7 @@ public class UserController {
 	}
 	
 	@PostMapping()
-	public ResponseEntity<User> createUser(@RequestBody @Valid User user) {
+	public ResponseEntity<User> createUser(@RequestBody @Valid User user) throws UserAlreadyExistsException {
 		return new ResponseEntity<User>(userService.createUser(user), HttpStatus.CREATED);
 	}
 	

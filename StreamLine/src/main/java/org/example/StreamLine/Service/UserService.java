@@ -1,5 +1,6 @@
 package org.example.StreamLine.Service;
 
+import org.example.StreamLine.Exceptions.UserAlreadyExistsException;
 import org.example.StreamLine.Exceptions.UserNotFoundException;
 import org.example.StreamLine.Model.User;
 import org.example.StreamLine.Repository.UserRepository;
@@ -32,8 +33,15 @@ public class UserService implements UserServiceInterface {
 		}
 	}
 	
-	public User createUser(User user) {
-		return userRepository.save(user);
+	public User createUser(User user) throws UserAlreadyExistsException {
+		User dbUser = userRepository.findByEmail(user.getEmail());
+		if(dbUser == null) {
+			return userRepository.save(user);
+		} else {
+			throw new UserAlreadyExistsException("User already exists");
+		}
+
+
 	}
 	
 	public User updateUser(Integer id, User user) throws UserNotFoundException {

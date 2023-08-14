@@ -90,7 +90,7 @@ public class DataInjector {
         }
     }
 
-    public void generatePosts() {
+    public void generatePosts(){
         Faker faker = new Faker();
 
         for(int i = 0; i < 100; i++) {

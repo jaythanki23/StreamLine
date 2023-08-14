@@ -1,5 +1,6 @@
 package org.example.StreamLine.Service;
 
+import org.example.StreamLine.Exceptions.UserAlreadyExistsException;
 import org.example.StreamLine.Exceptions.UserNotFoundException;
 import org.example.StreamLine.Model.User;
 import org.example.StreamLine.Repository.UserRepository;
@@ -34,7 +35,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void serviceCreatesUser() {
+    public void serviceCreatesUser() throws UserAlreadyExistsException {
         Mockito.when(userRepository.save(Mockito.any(User.class))).thenReturn(user);
 
         User savedUser = userService.createUser(user);
