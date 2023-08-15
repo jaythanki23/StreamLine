@@ -1,6 +1,7 @@
 package org.example.StreamLine.Model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name="friends_table")
@@ -11,11 +12,13 @@ public class Friend {
     private Integer id;
 
 
+    @NotNull(message = "Follower cannot be empty")
     @ManyToOne
     @JoinColumn(name = "follower_id")
     private User follower;
 
 
+    @NotNull(message = "Followee cannot be empty")
     @ManyToOne
     @JoinColumn(name = "followee_id")
     private User followee;

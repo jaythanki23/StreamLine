@@ -82,7 +82,9 @@ public class PostController {
 
 		postService.createPost(post);
 
-		hashtagService.parseHashtag(post.getDescription(), post);
+		if(!post.getDescription().equals("") && !post.getDescription().equals(null)) {
+			hashtagService.parseHashtag(post.getDescription(), post);
+		}
 
 		return new ResponseEntity<Post>(post, HttpStatus.OK);
 	}

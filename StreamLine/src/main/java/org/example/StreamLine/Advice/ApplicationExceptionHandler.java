@@ -73,5 +73,19 @@ public class ApplicationExceptionHandler {
         return exceptionHandlerObject.setKeyValuePair("Error", exception.getMessage());
     }
 
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(StoryNotFoundException.class)
+    public Map<String, String> handleStoryNotFoundException(StoryNotFoundException exception) {
+        exceptionHandlerObject = new ExceptionHandlerObject();
+        return exceptionHandlerObject.setKeyValuePair("Error", exception.getMessage());
+    }
+
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(HashtagNotFoundException.class)
+    public Map<String, String> handleStoryNotFoundException(HashtagNotFoundException exception) {
+        exceptionHandlerObject = new ExceptionHandlerObject();
+        return exceptionHandlerObject.setKeyValuePair("Error", exception.getMessage());
+    }
+
 
 }
