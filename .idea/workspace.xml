@@ -5,22 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08c1d6e9-de76-43fc-a67e-b80cd8ac4665" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trending/src/main/java/com/streamline/trending/Utils/TrendingUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StreamLine/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StreamLine/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-registry/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service-registry/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trending/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/trending/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trending/src/main/java/com/streamline/trending/Config/RedisConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trending/src/main/java/com/streamline/trending/Controller/TrendingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/trending/src/main/java/com/streamline/trending/Controller/TrendingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trending/src/main/java/com/streamline/trending/TrendingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/trending/src/main/java/com/streamline/trending/TrendingApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trending/src/main/java/com/streamline/trending/Utils/TrendingPosts.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trending/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/trending/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Advice/ApplicationExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Advice/ApplicationExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Controller/FriendController.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Controller/FriendController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Controller/HashtagController.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Controller/HashtagController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Controller/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Controller/StoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Controller/StoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Model/Friend.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Model/Friend.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Model/Hashtag.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Model/Hashtag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Model/Story.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Model/Story.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Service/FriendService.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Service/FriendService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Service/FriendServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Service/FriendServiceInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Service/HashtagService.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Service/HashtagService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Service/HashtagServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Service/HashtagServiceInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Service/StoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Service/StoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Service/StoryServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/StreamLine/src/main/java/org/example/StreamLine/Service/StoryServiceInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +30,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Record" />
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -56,12 +56,22 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/StreamLine/api-gateway&quot;
-  }
+
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.streamline.trending.Model" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.example.StreamLine.Service" />
+      <recent name="org.example.StreamLine.Controller" />
+      <recent name="org.example.StreamLine.Repository" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -71,7 +81,86 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Maven.api-gateway">
+  <component name="RunManager" selected="JUnit.UserControllerTest.controllerDeleteUserById">
+    <configuration name="UserControllerTest.controllerCreateUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StreamLine" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.StreamLine.Controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.StreamLine.Controller" />
+      <option name="MAIN_CLASS_NAME" value="org.example.StreamLine.Controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="controllerCreateUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.controllerDeleteUserById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StreamLine" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.StreamLine.Controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.StreamLine.Controller" />
+      <option name="MAIN_CLASS_NAME" value="org.example.StreamLine.Controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="controllerDeleteUserById" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.controllerGetAllUsers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StreamLine" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.StreamLine.Controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.StreamLine.Controller" />
+      <option name="MAIN_CLASS_NAME" value="org.example.StreamLine.Controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="controllerGetAllUsers" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.controllergetUserById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StreamLine" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.StreamLine.Controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.StreamLine.Controller" />
+      <option name="MAIN_CLASS_NAME" value="org.example.StreamLine.Controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="controllergetUserById" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StreamLine" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.StreamLine.Service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.StreamLine.Service" />
+      <option name="MAIN_CLASS_NAME" value="org.example.StreamLine.Service.UserServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="StreamLine" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -173,11 +262,25 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="JUnit.UserControllerTest.controllerCreateUser" />
+      <item itemvalue="JUnit.UserControllerTest.controllerDeleteUserById" />
+      <item itemvalue="JUnit.UserControllerTest.controllerGetAllUsers" />
+      <item itemvalue="JUnit.UserControllerTest.controllergetUserById" />
+      <item itemvalue="JUnit.UserServiceTest" />
       <item itemvalue="Maven.StreamLine" />
       <item itemvalue="Maven.trending" />
       <item itemvalue="Maven.service registry" />
       <item itemvalue="Maven.api-gateway" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.UserControllerTest.controllerDeleteUserById" />
+        <item itemvalue="JUnit.UserControllerTest.controllergetUserById" />
+        <item itemvalue="JUnit.UserControllerTest.controllerCreateUser" />
+        <item itemvalue="JUnit.UserControllerTest.controllerGetAllUsers" />
+        <item itemvalue="JUnit.UserServiceTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

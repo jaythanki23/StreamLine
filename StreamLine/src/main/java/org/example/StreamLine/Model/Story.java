@@ -1,6 +1,7 @@
 package org.example.StreamLine.Model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
@@ -15,9 +16,11 @@ public class Story {
 
     private String description;
 
+    @NotNull(message = "User cannot be null")
     @ManyToOne
     private User user;
 
+    @NotNull(message = "User cannot be null")
     @OneToOne
     private Post post;
 

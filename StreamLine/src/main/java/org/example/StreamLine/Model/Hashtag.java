@@ -1,6 +1,7 @@
 package org.example.StreamLine.Model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import org.example.StreamLine.Model.Post;
 
 @Entity
@@ -12,6 +13,7 @@ public class Hashtag {
 
     private String tag;
 
+    @NotNull(message = "Post cannot be empty")
     @ManyToOne
     @JoinColumn(
             name="tag_id",
