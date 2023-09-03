@@ -16,6 +16,7 @@ public class TrendingUtil {
         return postClient.getAllPosts();
     }
 
+    // method to select random posts and put them in redis
     public List<Post> selectRandomPosts() {
         Random rand = new Random();
         List<Post> randomPosts = new ArrayList<>();

@@ -32,12 +32,14 @@ public class DataInjector {
         this.hashtagService = hashtagService;
     }
 
+    // method to pick random hashtag from the list above
     public String generateRandomWord() {
         Random rand = new Random();
 
         return popularTags[rand.nextInt(popularTags.length)];
     }
 
+    // generate a hashtag string
     public String generateRandomTagString() {
         StringBuilder sb = new StringBuilder();
         Random rand = new Random();
@@ -49,6 +51,7 @@ public class DataInjector {
         return  sb.toString();
     }
 
+    // method to select a random user
     public User selectRandomUser() {
         List<User> users = userService.getAllUsers();
         Random rand = new Random();
@@ -57,6 +60,7 @@ public class DataInjector {
         return user;
     }
 
+    // method to generate hundred random users
     public void generateUsers() {
 
         try (Connection conn = DriverManager.getConnection(jdbcUrl, username, password)) {
@@ -90,6 +94,7 @@ public class DataInjector {
         }
     }
 
+    // generate hundred random posts
     public void generatePosts(){
         Faker faker = new Faker();
 

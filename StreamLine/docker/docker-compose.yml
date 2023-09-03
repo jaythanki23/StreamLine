@@ -14,7 +14,7 @@ services:
       - POSTGRES_PASSWORD=postgres
 
 
-  # Zookeeper, single node
+  # Zookeeper
   zookeeper:
     image: wurstmeister/zookeeper:latest
     container_name: zookeeper
@@ -30,7 +30,7 @@ services:
       - zookeeper_logs:/opt/zookeeper-latest/logs
       - zookeeper_conf:/opt/zookeeper-latest/conf
 
-  # kafka multi node
+  # kafka node 1
   kafka1:
     image: wurstmeister/kafka:latest
     container_name: kafka1
@@ -49,6 +49,7 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
 
+  # kakfa node 2
   kafka2:
     image: wurstmeister/kafka:latest
     container_name: kafka2
@@ -67,7 +68,7 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
 
-  #kafdrop for topic/msg visualization
+  #kafdrop
   kafdrop3:
     image: obsidiandynamics/kafdrop
     container_name: kafdrop
@@ -82,7 +83,7 @@ services:
       - kafka2
 
 
-  # debezium connector
+  # debezium source connector
   source_connect:
     image: debezium/connect:1.9
     container_name: source_connect
@@ -102,7 +103,7 @@ services:
       - zookeeper
       - postgres
 
-  # elasticsearch connector
+  # elasticsearch sink connector
   sink_connect:
     container_name: sink_connect
     image: confluentinc/cp-kafka-connect:3.3.1

@@ -17,5 +17,6 @@ public interface HashtagServiceInterface {
     // save tag
     Hashtag saveTag(Hashtag tag);
 
+    // pick hashtags from a post and store them in database
     void parseHashtag(String tagString, Post post);
 }
